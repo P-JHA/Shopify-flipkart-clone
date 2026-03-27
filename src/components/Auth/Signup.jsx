@@ -56,6 +56,9 @@ export default function SignUp() {
     terms: false,
   });
 
+  
+console.log( user);
+
   useEffect(() => {
     if (!loading && !error && user) {
       toast.success("Registered", {
@@ -77,6 +80,7 @@ export default function SignUp() {
         terms: false,
       });
     } else if (!loading && error) {
+      // console.log(error)
       toast.error(error, {
         position: "top-right",
         autoClose: 3000,
