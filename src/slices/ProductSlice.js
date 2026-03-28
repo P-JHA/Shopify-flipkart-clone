@@ -18,7 +18,8 @@ export const fetchProducts = createAsyncThunk(
   async () => {
     try {
       let { data } = await axios(
-        `${process.env.REACT_APP_API_URL}api/v1/products/`
+        // `${process.env.REACT_APP_API_URL}api/v1/products/`
+        `${process.env.REACT_APP_API_URL}/api/v1/products`
       );
       return data;
     } catch (error) {
@@ -32,7 +33,8 @@ export const deleteProduct = createAsyncThunk(
   async ({ token, productId }) => {
     try {
       let { data } = await axios.delete(
-        `${process.env.REACT_APP_API_URL}api/v1/products/delete/${productId}`,
+        // `${process.env.REACT_APP_API_URL}api/v1/products/delete/${productId}`,
+        `${process.env.REACT_APP_API_URL}/api/v1/products/delete/${productId}`,
         {
           headers: {
             authorization: `Bearer ${token}`,
@@ -51,7 +53,8 @@ export const updateProduct = createAsyncThunk(
   async ({ formData, token, productId }) => {
     try {
       let { data } = await axios.put(
-        `${process.env.REACT_APP_API_URL}api/v1/products/update/${productId}`,
+        // `${process.env.REACT_APP_API_URL}api/v1/products/update/${productId}`,
+        `${process.env.REACT_APP_API_URL}/api/v1/products/update/${productId}`,
         formData,
         {
           headers: {
@@ -71,7 +74,8 @@ export const addProduct = createAsyncThunk(
   async ({ formData, token }) => {
     try {
       let { data } = await axios.post(
-        `${process.env.REACT_APP_API_URL}api/v1/products/create`,
+        // `${process.env.REACT_APP_API_URL}api/v1/products/create`,
+        `${process.env.REACT_APP_API_URL}/api/v1/products/create`,
         formData,
         {
           headers: {
