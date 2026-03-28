@@ -29,7 +29,7 @@ function Copyright() {
         fontSize: "15px",
         lineHeight: "2",
         fontFamily: "Rubik",
-        justifyContent: "center"
+        justifyContent: "center",
       }}
     >
       © 2026 Made with love by Prabhakar
@@ -44,10 +44,33 @@ const Footer = () => {
         <Container>
           <Row>
             <Column style={{ display: "inline-block" }}>
-              <h1
+              {/* <h1
                 style={{ color: "#fff", fontSize: "34px", fontWeight: "bold" }}
               >
                 ShopZone
+              </h1> */}
+              <h1
+                style={{
+                  color: "#fff",
+                  fontSize: "34px",
+                  fontWeight: "bold",
+                  display: "flex",
+                  alignItems: "flex-end",
+                }}
+              >
+                ShopZone
+                <span
+                  style={{
+                    color: "#ffe500",
+                    marginLeft: "6px",
+                    fontSize: "18px",
+                    fontWeight: "600",
+                    position: "relative",
+                    top: "4px",
+                  }}
+                >
+                  FLIPKART
+                </span>
               </h1>
             </Column>
 
@@ -246,7 +269,9 @@ const Footer = () => {
 							</Link>
 						</Column> */}
             <Column>
-              <Heading style={{ color: "#ffffff", fontWeight: "600" }}>Connect</Heading>
+              <Heading style={{ color: "#ffffff", fontWeight: "600" }}>
+                Connect
+              </Heading>
 
               <div style={{ display: "flex", gap: "15px", marginTop: "10px" }}>
                 <a
@@ -291,7 +316,7 @@ const Footer = () => {
         <div
           style={{
             // backgroundColor: "#F4EDF2",
-			backgroundColor: "#0f1a2c",
+            backgroundColor: "#0f1a2c",
             paddingLeft: "30px",
             paddingRight: "30px",
             textAlign: "center",
