@@ -108,30 +108,30 @@ const SingleProduct = () => {
 
   /* ------------------------- This is the start of cart button component *****************************/
   const CartButton = () => {
-    return (
-      <Button
-        style={{
-          backgroundColor: "#4B3049",
-          fontSize: "16px",
-          textTransform: "capitalize",
-          fontWeight: "500",
-          fontFamily: "'Jost', sans-serif",
-          display: "flex",
-          alignItems: "center",
-          gap: "13px",
-        }}
-        onClick={handleAddToCart}
-      >
-        Add To Cart <ShoppingBagOutlinedIcon style={{ marginBottom: "5px" }} />
-      </Button>
+  return (
+    <Button
+      style={{
+        backgroundColor: "#ff9f00",
+        color: "#fff",
+        fontSize: "16px",
+        textTransform: "uppercase",
+        fontWeight: "500",
+        borderRadius: "2px",
+        padding: "10px 20px",
+        boxShadow: "0 1px 2px rgba(0,0,0,0.2)",
+        display: "flex",
+        alignItems: "center",
+        gap: "13px",
+      }}
+      onClick={handleAddToCart}
+    >
+      Add To Cart <ShoppingBagOutlinedIcon style={{ marginBottom: "5px" }} />
+    </Button>
+  );
+};
 
 
-
-    );
-  };
-
-
-  const owner_phone_number = 8219328779
+  const owner_phone_number = 8416091748
 
   /* ------------------------- This is the end of cart button component *****************************/
 
@@ -455,7 +455,8 @@ const SingleProduct = () => {
 
 const Wrapper = styled.section`
   padding: 4rem 2rem 5rem;
-  background-color: #f4edf2;
+  // background-color: #f4edf2;
+  background-color:#f1f3f6;
   min-height: 100vh;
 
   .container {

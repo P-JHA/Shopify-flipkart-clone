@@ -105,9 +105,11 @@ const Wrapper = styled.section`
   .sort-selection .sort-selection--style {
     padding: 0.5rem;
     cursor: pointer;
-    background-color: #f4edf2;
+    // background-color: #f4edf2;
+    background-color:#f1f3f6;
     color: #795376;
-    border: 1px solid #f4edf2;
+    // border: 1px solid #f4edf2;
+    background-color:#f1f3f6;
 
     .sort-selection--option {
       padding: 0.5rem 0;

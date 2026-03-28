@@ -23,7 +23,7 @@ import { useNavigate } from "react-router-dom";
 import { logout } from "../slices/userSlice";
 import { fetchCartItems } from "../slices/CartSlice";
 import { Badge } from "@mui/material";
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 function ScrollTop(props) {
   const { children, window } = props;
@@ -34,7 +34,7 @@ function ScrollTop(props) {
   });
   const handleClick = (event) => {
     const anchor = (event.target.ownerDocument || document).querySelector(
-      "#back-to-top-anchor"
+      "#back-to-top-anchor",
     );
 
     if (anchor) {
@@ -68,7 +68,7 @@ function Navbar(props) {
   const { totalQty } = useSelector((state) => state.cartState);
   const { wishList } = useSelector((state) => state.wishLishState);
 
-  console.log(wishList)
+  console.log(wishList);
 
   const dispatch = useDispatch();
 
@@ -115,7 +115,6 @@ function Navbar(props) {
   ];
 
   const settings = [
-
     user ? (
       <Link
         style={{
@@ -193,11 +192,25 @@ function Navbar(props) {
                 fontSize: "2rem",
                 fontWeight: 800,
                 letterSpacing: "0.09rem",
-                color: "#4B3049",
+                // color: "#4B3049",
+                color: "#2874f0",
                 // textDecoration: 'none',
               }}
             >
-              ShopZone
+              ShopZone{" "}
+              <span style={{ display: "flex", alignItems: "flex-end" }}>
+                <span
+                  style={{
+                    color: "#ffe500",
+                    marginLeft: "5px",
+                    fontSize: "1.1rem",
+                    position: "relative",
+                    top: "3px",
+                  }}
+                >
+                  FLIPKART
+                </span>
+              </span>
             </Typography>
             {/* </Link> */}
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -276,30 +289,29 @@ function Navbar(props) {
                 gap: "50px",
               }}
             >
-              {
-                user?.isAdmin && (
-                  <Button
-                    onClick={handleCloseNavMenu}
-                    sx={{
-                      my: 2,
-                      color: "white",
-                      display: "block",
-                      fontSize: "1.4rem",
-                    }}>
-
-                    <Link
-                      to="/dashboard"
-                      style={{
-                        textDecoration: "none",
-                        color: "#4B3049",
-                        fontWeight: "500",
-                        fontSize: "0.9rem",
-                      }}
-                    >
-                      Dashboard
-                    </Link>
-                  </Button>)
-              }
+              {user?.isAdmin && (
+                <Button
+                  onClick={handleCloseNavMenu}
+                  sx={{
+                    my: 2,
+                    color: "white",
+                    display: "block",
+                    fontSize: "1.4rem",
+                  }}
+                >
+                  <Link
+                    to="/dashboard"
+                    style={{
+                      textDecoration: "none",
+                      color: "#4B3049",
+                      fontWeight: "500",
+                      fontSize: "0.9rem",
+                    }}
+                  >
+                    Dashboard
+                  </Link>
+                </Button>
+              )}
               {pages.map((page, index) => (
                 <Button
                   key={index}
@@ -315,8 +327,6 @@ function Navbar(props) {
                 </Button>
               ))}
             </Box>
-
-
 
             <Box sx={{ flexGrow: 0 }}>
               <IconButton

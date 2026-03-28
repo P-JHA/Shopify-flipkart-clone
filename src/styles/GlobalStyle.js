@@ -20,10 +20,16 @@ html {
   overflow-x: hidden;
 }
 
+// body {
+//   overflow-x: hidden;
+//    scrollbar-color: rgb(98, 84, 243);
+//     scrollbar-width: thin;
+// }
 body {
   overflow-x: hidden;
-   scrollbar-color: rgb(98, 84, 243);
-    scrollbar-width: thin;
+  background-color: #f1f3f6; /* Flipkart light background */
+  scrollbar-color: rgb(98, 84, 243);
+  scrollbar-width: thin;
 }
 
 body::-webkit-scrollbar {
@@ -50,6 +56,7 @@ h2,
 h3,
 h4 {
    font-family: "Jost", sans-serif;
+  //  color: #2874F0;
 
 }
 
@@ -114,7 +121,8 @@ ${"" /* resuable code section  */}
   .intro-data {
     margin-bottom: 0;
     text-transform: uppercase;
-    color:#4B3049;
+    // color:#4B3049;
+    color: #212121;
   }
 
   @media (max-width: 900px) {
