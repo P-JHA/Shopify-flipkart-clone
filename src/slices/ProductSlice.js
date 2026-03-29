@@ -17,16 +17,17 @@ export const fetchProducts = createAsyncThunk(
   "newProducts/fetchProducts",
   async () => {
     try {
+      console.log("API URL:", process.env.REACT_APP_API_URL);
+
       let { data } = await axios(
-        // `${process.env.REACT_APP_API_URL}api/v1/products/`
-        // `${process.env.REACT_APP_API_URL}/api/v1/products`,
-        `${process.env.REACT_APP_API_URL}api/v1/products`,
+        `${process.env.REACT_APP_API_URL}api/v1/products`
       );
+
       return data;
     } catch (error) {
       throw new Error(error?.response?.data?.message || error.message);
     }
-  },
+  }
 );
 
 export const deleteProduct = createAsyncThunk(
