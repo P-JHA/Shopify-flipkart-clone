@@ -19,13 +19,13 @@ export const fetchProducts = createAsyncThunk(
     try {
       let { data } = await axios(
         // `${process.env.REACT_APP_API_URL}api/v1/products/`
-        `${process.env.REACT_APP_API_URL}/api/v1/products`
+        `${process.env.REACT_APP_API_URL}/api/v1/products`,
       );
       return data;
     } catch (error) {
-      throw new Error(error.response.data.message);
+      throw new Error(error?.response?.data?.message || error.message);
     }
-  }
+  },
 );
 
 export const deleteProduct = createAsyncThunk(
@@ -39,13 +39,13 @@ export const deleteProduct = createAsyncThunk(
           headers: {
             authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
       return data;
     } catch (error) {
-      throw new Error(error.response.data.message);
+      throw new Error(error?.response?.data?.message || error.message);
     }
-  }
+  },
 );
 
 export const updateProduct = createAsyncThunk(
@@ -60,13 +60,13 @@ export const updateProduct = createAsyncThunk(
           headers: {
             authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
       return data;
     } catch (error) {
-      throw new Error(error.response.data.message);
+      throw new Error(error?.response?.data?.message || error.message);
     }
-  }
+  },
 );
 
 export const addProduct = createAsyncThunk(
@@ -81,13 +81,13 @@ export const addProduct = createAsyncThunk(
           headers: {
             authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
       return data;
     } catch (error) {
-      throw new Error(error.response.data.message);
+      throw new Error(error?.response?.data?.message || error.message);
     }
-  }
+  },
 );
 
 const productSlice = createSlice({
@@ -157,7 +157,7 @@ const productSlice = createSlice({
     [deleteProduct.fulfilled]: (state, action) => {
       state.loading = false;
       let index = state.products.findIndex(
-        (product) => product._id === action.payload._id
+        (product) => product._id === action.payload._id,
       );
       state.products.splice(index, 1);
       state.filteredProducts.splice(index, 1);
@@ -173,7 +173,7 @@ const productSlice = createSlice({
     [updateProduct.fulfilled]: (state, action) => {
       state.loading = false;
       let index = state.products.findIndex(
-        (product) => product._id === action.payload._id
+        (product) => product._id === action.payload._id,
       );
       state.products.splice(index, 1, action.payload);
       state.filteredProducts.splice(index, 1, action.payload);
@@ -208,12 +208,9 @@ export const {
 
 export default productSlice.reducer;
 
-
-
 // import { createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 // import axios from "axios";
 // import { filterByCategory, filterPrice, searching } from "../utils/utils";
-
 
 // let allProducts = null;
 // const initialState = {
@@ -269,8 +266,6 @@ export default productSlice.reducer;
 //         throw new Error(error.response.data.message)
 //     }
 // })
-
-
 
 // const productSlice = createSlice({
 //     name : "products",
@@ -347,4 +342,3 @@ export default productSlice.reducer;
 // export const  {searchProducts, filterByPrice, filterCategory} = productSlice.actions;
 
 // export default productSlice.reducer;
-
