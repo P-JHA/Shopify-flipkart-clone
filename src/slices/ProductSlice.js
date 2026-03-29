@@ -19,7 +19,8 @@ export const fetchProducts = createAsyncThunk(
     try {
       let { data } = await axios(
         // `${process.env.REACT_APP_API_URL}api/v1/products/`
-        `${process.env.REACT_APP_API_URL}/api/v1/products`,
+        // `${process.env.REACT_APP_API_URL}/api/v1/products`,
+        `${process.env.REACT_APP_API_URL}api/v1/products`,
       );
       return data;
     } catch (error) {
