@@ -9,17 +9,15 @@ import { Button } from "../styles/Button";
 import { Box, Typography } from "@mui/material";
 import { GridLoader } from "react-spinners";
 
-
 const FeatureProducts = () => {
   const { products, loading, error } = useSelector(
-    (state) => state.productstate
+    (state) => state.productState,
   );
   const {
     user,
     loading: userLoading,
     error: userError,
-  } = useSelector((state) => state.userstate);
-
+  } = useSelector((state) => state.userState);
 
   return (
     <Wrapper>
@@ -27,63 +25,60 @@ const FeatureProducts = () => {
         {/* <div className="intro-data">Check Now!</div> */}
         <h2 className="common-heading">Featured Products</h2>
         {loading ? (
-          <Box sx={{
-            minHeight: "60vh",
-            display: "grid",
-            placeContent: "center"
-          }}>
-            <GridLoader
-              color="#4b3049"
-              size={19}
-            />
+          <Box
+            sx={{
+              minHeight: "60vh",
+              display: "grid",
+              placeContent: "center",
+            }}
+          >
+            <GridLoader color="#4b3049" size={19} />
           </Box>
         ) : error ? (
           <Box>
-            <Typography textAlign="center" >
-              {error}
-            </Typography>
+            <Typography textAlign="center">{error}</Typography>
           </Box>
         ) : (
           <div className="grid grid-three-column">
-            {products?.filter(product => product.featured === true)?.slice(0, 4)?.map((product) => (
-              <Item
-                name={product.name}
-                brand={product.brand}
-                countInStock={product.countInStock}
-                category={product.category}
-                _id={product._id}
-                key={product._id}
-                description={product.description}
-                image={product.image}
-                price={product.price}
-              />
-            ))}
+            {products
+              ?.filter((product) => product.featured === true)
+              ?.slice(0, 4)
+              ?.map((product) => (
+                <Item
+                  name={product.name}
+                  brand={product.brand}
+                  countInStock={product.countInStock}
+                  category={product.category}
+                  _id={product._id}
+                  key={product._id}
+                  description={product.description}
+                  image={product.image}
+                  price={product.price}
+                />
+              ))}
           </div>
-
         )}
       </div>
-      {
-        !loading && !error && products && <Box sx={{
-          textAlign: "center",
-          mt: "40px"
-        }}>
+      {!loading && !error && products && (
+        <Box
+          sx={{
+            textAlign: "center",
+            mt: "40px",
+          }}
+        >
           <Link to="/products">
             <Button>Shop More</Button>
           </Link>
         </Box>
-      }
+      )}
     </Wrapper>
-
   );
 };
-
-
-
 
 const Wrapper = styled.section`
   padding: 4rem 0 5rem;
   // background-color: #f4edf2;
- background-color: #f1f3f6;
+  background-color: #f1f3f6;
 
   .container {
     max-width: 80rem;
